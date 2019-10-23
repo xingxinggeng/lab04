@@ -18,9 +18,14 @@ def encryptCaesarCipher(plainText, key):
     cycle around the ends of the alphabet.
 
     """
-    cipherText = ''
-    
-    return cipherText
+    alph = createAlphabet()
+    l = len(alph)
+    result = []
+    for char in plainText:
+        idx = alph.find(char)
+        if(idx != -1):
+            result.append(alph[(idx - key)%l])
+    return ''.join(result)
 
 def decryptCaesarCipher(cipherText, key):
     # TODO write function
